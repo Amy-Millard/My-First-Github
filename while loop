@@ -1,0 +1,8 @@
+bananas =10
+
+
+while bananas >= 5:
+  print(bananas)
+  print("I have a bunch of bananas")
+  bananas = bananas -1
+  print(bananas)
