@@ -1,0 +1,75 @@
+#Exercise 1: User-defined function
+#defining a function called getDoubleAlphabet
+
+def getDoubleAlphabet(alphabet):
+    doubleAlphabet = alphabet + alphabet
+    return doubleAlphabet
+
+
+#Exercise 2: Get a message to encrypt
+#defining get message, asking for input "please enter...
+
+def getMessage():
+    stringToEncrypt = input("Please enter a message to encrypt: ")
+    return stringToEncrypt
+
+#Exercise 3: Get a Cipher key
+#asking for an input for a number for how many places to shift the alphabet along in the Cipher key
+
+def getCipherKey():
+    shiftAmount = input( "Please enter a key (whole number from 1-25): ")
+    return shiftAmount
+
+#Exercise 4: Encrypt a message
+#take 3 arguments (message, cipherKey and alphabet) 
+#Initialize variables, 
+#use a for loop to traverse each letter in the message
+#for specific letter determine the new position given the cipher key
+#if current letter is in alphabet, append the new letter to the encrypted message
+#if current letter is not in alphabet just append the current letter
+#return the encrypted message after exucising all the letters in the message
+
+def encryptMessage(message, cipherKey, alphabet):
+    encryptedMessage = ""
+    uppercaseMessage = ""
+    uppercaseMessage = message.upper()
+    for currentCharacter in uppercaseMessage:
+        position = alphabet.find(currentCharacter)
+        newPosition = position + int(cipherKey)
+        if currentCharacter in alphabet:
+            encryptedMessage = encryptedMessage + alphabet [newPosition]
+        else:
+           encryptedMessage = encryptedMessage +currentCharacter
+    return encryptedMessage
+
+#Exercise 5: Decrypt a message
+#write decryptMessage()function by reusing encryptMessage(), can undo the encryption by shifting each letter back. now subtract cipher key. 
+
+def decryptMessage(message, cipherKey, alphabet):
+    decryptKey = -1 * int(cipherKey)
+    return encryptMessage(message, decryptKey, alphabet)
+
+#Exercise 6: A main function, plan logic: 
+#define a string variable to contain American alphabet
+#to be able to shift letters, fouble our alphabet string
+#get a message to encrypt from user (input)
+#get a cipher key from user (input)
+#Encrypt message
+#decrypt the message
+
+def runCaesarCipherProgram():
+    myAlphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    print(f'Alphabet: {myAlphabet}')
+    myAlphabet2 = getDoubleAlphabet(myAlphabet)
+    print(f'Alphabet2: {myAlphabet2}')
+    myMessage = getMessage()
+    print(myMessage)
+    myCipherKey = getCipherKey()
+    print(myCipherKey)
+    
+    myEncryptedMessage = encryptMessage(myMessage, myCipherKey, myAlphabet2)
+    print(f'Encrypted Message: {myEncryptedMessage}')
+    myDecryptedMessage = decryptMessage(myEncryptedMessage, myCipherKey, myAlphabet2)
+    print(f'Decrypted Message: {myDecryptedMessage}')
+    
+runCaesarCipherProgram()
