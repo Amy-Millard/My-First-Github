@@ -1,0 +1,4 @@
+class_roster = ["Amy","Alex","Alonzo","Loki"] 
+test_scores = [86,93,80,82]
+print(class_roster) 
+print(test_scores)
