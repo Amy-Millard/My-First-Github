@@ -1,0 +1,6 @@
+mkdir Amy_4March
+[ec2-user@ip-10-1-11-64 ~]$ ls
+Amy_4March
+[ec2-user@ip-10-1-11-64 ~]$ cd Amy_4March
+[ec2-user@ip-10-1-11-64 Amy_4March]$ touch Amy{1..25}.txt
+[ec2-user@ip-10-1-11-64 Amy_4March]$ ls -all
